@@ -14,7 +14,7 @@ const int RIGHT = 1;
 const int DOWN = 2;
 const int LEFT = 3;
 
-const int PASSOS = 7;
+const int PASSOS = 3;
 
 // la funcion principal es move(b, dir), el resto son funciones auxiliares
 
@@ -203,12 +203,24 @@ pair<int, double> predict(tauler& b, int passos) {
   for (int i=0; i<4; i++) {
     tauler b1 = b;
     move(b1, directions[i]);
+    
     //cout << es_diferent(b, b1) << endl;
     //cout << get_score(b1, 1) << endl;
     if (es_diferent(b, b1)) {
-      scores.push_back(get_score(b1, PASSOS-passos+1)+predict(b1, passos-1).second/1.5);
+      double totalscore = get_score(b1, PASSOS-passos+1);
+      for (int i=0; i<4; i++) {
+        for (int j=0; j<4; j++) {
+          if (b1[i][j] == 0) {
+            tauler nou = b1;
+            nou[i][j] = 2;
+            totalscore += 0.5*predict(nou, passos-1).second/passos;
+          }
+        }
+      }
+      //scores.push_back(get_score(b1, PASSOS-passos+1)+predict(b1, passos-1).second/passos);
+      scores.push_back(totalscore);
     } else {
-      scores.push_back(-10000000.0);
+      scores.push_back(-10.0);
     }
     //cout << get_score(b1, 1) << endl;
   }

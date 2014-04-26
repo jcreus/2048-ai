@@ -14,7 +14,7 @@ const int RIGHT = 1;
 const int DOWN = 2;
 const int LEFT = 3;
 
-const int PASSOS = 7;
+const int PASSOS = 24;
 
 // la funcion principal es move(b, dir), el resto son funciones auxiliares
 

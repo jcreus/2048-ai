@@ -1,0 +1,1 @@
+twttr.receiveCount({"count":140952,"url":"http:\/\/gabrielecirulli.github.io\/2048\/"});

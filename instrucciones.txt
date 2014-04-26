@@ -1,0 +1,16 @@
+Instrucciones
+
+1. Compilar el jugador:
+g++ -O2 solver.cc -o solver.exe
+
+2. Ejecutar el servidor local:
+python server.py
+
+3. Usando firefox ir a http://gabrielecirulli.github.io/2048/
+
+4. Abrir la consola de firefox (Ctrl+Shift+K) y pegar el codigo de http://localhost:2048
+
+
+Inicialmente solver.cc contiene un ejemplo de jugador que escoge un movimiento al azar.
+Podeis aprovechar las funciones implementadas en el jugador de ejemplo para desarrollar
+vuestro propia inteligencia artificial de 2048.
